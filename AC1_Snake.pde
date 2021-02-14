@@ -9,7 +9,7 @@ void setup() {
   frog = new Frog(img);
   snake = new Snake();
   food = 0;
-  timer = 5;
+  timer = 60;
 }
  
 void draw() {
@@ -44,7 +44,7 @@ void draw() {
     textSize(50);
     text("Time is out!!", width/2, height/2);
     textSize(20);
-    text("You have eaten 20 worms", width/2, height/2 + 30);
+    text("You have eaten " + food + " worms", width/2, height/2 + 30);
     noLoop();
   }
 }
