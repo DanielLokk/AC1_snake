@@ -3,17 +3,17 @@ Snake snake;
 int timer, food;
 
 void setup() {
-  size(640,640);
   frog = new Frog();
   snake = new Snake();
   food = 0;
   timer = 60;
 }
+public void settings() {
+  size(640, 640);
+}
  
 void draw() {
   background(255);
-  
-  
   // Col·lisio entre frog i snake, nomès funciona amb el primer de la array
   if (dist(frog.getLoc().x, frog.getLoc().y, snake.getLoc().x, snake.getLoc().y) < 20) {
     food++;
@@ -31,10 +31,9 @@ void draw() {
   text("Food: " + food, 15, 70);
 
   
-  snake.update();
   snake.display();
+  snake.update();
   
-
   frog.update();
   frog.checkEdges();
   frog.display();

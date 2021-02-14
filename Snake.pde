@@ -25,15 +25,16 @@ class Snake {
     dir.mult(0.5);
     acceleration = dir;
     velocity.add(acceleration);
-    velocity.limit(1.5);
+    velocity.limit(4);
     location.add(velocity);
   }
    void display() {
     fill(0, 128, 60);
     stroke(0, 64, 30);
     strokeWeight(1);
+    
     for(PVector c : cuerpo) {
-      ellipse(c.x + tamano/2, c.y + tamano/2, tamano, tamano);
+        ellipse(c.x + tamano/2, c.y +tamano/2, tamano, tamano);
     }
     cuerpo.add(new PVector(location.x, location.y));
     cuerpo.remove(0); 
