@@ -5,13 +5,11 @@ class Snake {
   PVector velocity;
   PVector acceleration;
   int tamano;
-  ArrayList<PVector> cuerpo = new ArrayList<PVector>();
  
   Snake(float x, float y) {
     location = new PVector(x,y);
     velocity = new PVector(2,2);
     tamano = 20; 
-    cuerpo.add(new PVector(location.x, location.y));
   }
   
     
@@ -54,7 +52,4 @@ class Snake {
     
   }
   
-  void crecer() {
-    cuerpo.add(new PVector(location.x, location.y));
-  }
 }
