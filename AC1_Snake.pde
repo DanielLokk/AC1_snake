@@ -1,23 +1,25 @@
 Frog frog;
 Snake snake;
 int timer, food;
+PImage img;
 
 void setup() {
   size(640,640);
-  frog = new Frog();
+  img = loadImage("frog.png");
+  frog = new Frog(img);
   snake = new Snake();
   food = 0;
-  timer = 60;
+  timer = 5;
 }
  
 void draw() {
-  background(255);
+  background(139,69,19);
   
   
   // Col·lisio entre frog i snake, nomès funciona amb el primer de la array
   if (dist(frog.getLoc().x, frog.getLoc().y, snake.getLoc().x, snake.getLoc().y) < 20) {
     food++;
-    frog = new Frog();
+    frog = new Frog(img);
     snake.crecer();
   }
   
