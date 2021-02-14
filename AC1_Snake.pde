@@ -23,15 +23,11 @@ void draw() {
     snake.crecer();
   }
   
-  // TODO: Condició de victoria
-  if (timer == 0) {
-    
-  }
+  
   
   textSize(20);
   text("Time: " + (timer - millis()/1000), 15, 40);
   text("Food: " + food, 15, 70);
-
   
   snake.update();
   snake.display();
@@ -40,4 +36,15 @@ void draw() {
   frog.update();
   frog.checkEdges();
   frog.display();
+  
+  // TODO: Condició de victoria
+  if ((timer - millis()/1000) == 0) {
+    textAlign(CENTER);
+    fill(255);
+    textSize(50);
+    text("Time is out!!", width/2, height/2);
+    textSize(20);
+    text("You have eaten 20 worms", width/2, height/2 + 30);
+    noLoop();
+  }
 }
