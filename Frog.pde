@@ -2,10 +2,12 @@ class Frog {
   
   PVector location;
   PVector velocity;
+  PImage img;
   
-  Frog() {
+  Frog(PImage img) {
     location = new PVector(random(width), random(height));
     velocity = new PVector(random(2), random(2));
+    this.img = img;
   }
   
   PVector getLoc() {
@@ -13,9 +15,7 @@ class Frog {
   }
   
   void display() {
-    stroke(0);
-    fill(175);
-    ellipse(location.x, location.y, 16, 16);
+    image(img, location.x, location.y, 16, 16);
   }
   
   void update() {
