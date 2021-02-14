@@ -6,15 +6,18 @@ class Snake {
   PVector acceleration;
   int tamano;
  
-  Snake(float x, float y) {
+  Snake(float x, float y, PVector velocity_) {
     location = new PVector(x,y);
-    velocity = new PVector(2,2);
+    velocity = velocity_;
     tamano = 20; 
   }
   
-    
   PVector getLoc() {
     return location;
+  }
+  
+  PVector getVelocity() {
+    return velocity;
   }
   
   void update() {

@@ -14,8 +14,9 @@ void setup() {
 void draw() {
   background(255);
   
+  
   // Col·lisio entre frog i snake, nomès funciona amb el primer de la array
-  if ((abs(frog.getLoc().x - snake.get(0).getLoc().x) <= 20) && (abs(frog.getLoc().y - snake.get(0).getLoc().y) <= 20)) {
+  if (dist(frog.getLoc().x, frog.getLoc().y, snake.get(0).getLoc().x, snake.get(0).getLoc().y) < 20) {
     food++;
     frog = new Frog();
     snake.add(new Snake(snake.get(0).getLoc().x + 20, snake.get(0).getLoc().y + 20));
