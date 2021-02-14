@@ -1,4 +1,3 @@
-
 class Snake {
  
   PVector location;
@@ -10,7 +9,7 @@ class Snake {
   Snake() {
     location = new PVector(width/2,height/2);
     velocity = new PVector(2,2);
-    tamano = 20; 
+    tamano = 25; 
     cuerpo.add(new PVector(location.x, location.y));
   }
   
@@ -26,20 +25,18 @@ class Snake {
     dir.mult(0.5);
     acceleration = dir;
     velocity.add(acceleration);
-    velocity.limit(3);
+    velocity.limit(1.5);
     location.add(velocity);
- 
   }
-  
-  void display() {
+   void display() {
     fill(0, 128, 60);
     stroke(0, 64, 30);
     strokeWeight(1);
     for(PVector c : cuerpo) {
       ellipse(c.x + tamano/2, c.y + tamano/2, tamano, tamano);
-      cuerpo.add(new PVector(location.x, location.y));
-      cuerpo.remove(0); 
     }
+    cuerpo.add(new PVector(location.x, location.y));
+    cuerpo.remove(0); 
   }
   
   void crecer() {
