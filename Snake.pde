@@ -1,4 +1,3 @@
-
 class Snake {
  
   PVector location;
