@@ -1,12 +1,11 @@
 Frog frog;
-ArrayList<Snake> snake;
+Snake snake;
 int timer, food;
 
 void setup() {
   size(640,640);
   frog = new Frog();
-  snake = new ArrayList<Snake>();
-  snake.add(new Snake(width/2, height/2));
+  snake = new Snake();
   food = 0;
   timer = 60;
 }
@@ -19,7 +18,7 @@ void draw() {
   if (dist(frog.getLoc().x, frog.getLoc().y, snake.get(0).getLoc().x, snake.get(0).getLoc().y) < 20) {
     food++;
     frog = new Frog();
-    snake.add(new Snake(snake.get(0).getLoc().x + 20, snake.get(0).getLoc().y + 20));
+    snake.crecer();
   }
   
   // TODO: Condició de victoria
@@ -31,10 +30,10 @@ void draw() {
   text("Time: " + (timer - millis()/1000), 15, 40);
   text("Food: " + food, 15, 70);
 
-  for (Snake s : snake){
-    s.update();
-    s.display();
-  }
+  
+  snake.update();
+  snake.display();
+  
 
   frog.update();
   frog.checkEdges();
