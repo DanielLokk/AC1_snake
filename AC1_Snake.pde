@@ -4,14 +4,20 @@ int timer, food;
 PImage img;
 
 void setup() {
-  frog = new Frog();
+  
   size(640,640);
   img = loadImage("frog.png");
   frog = new Frog(img);
   snake = new Snake();
+  
+  // Puntuacio equivalent al nº de granotes menjades
   food = 0;
+  
+  // Temporitzador que senyalitza la durada del joc
   timer = 60;
+  
 }
+
 public void settings() {
   size(640, 640);
 }
@@ -27,13 +33,13 @@ void draw() {
     frog = new Frog(img);
     snake.crecer();
   }
-  
-  
-  
+
+  // Temporitzador i score mostrats a la part superior esquerre
   textSize(20);
+  fill(255);
   text("Time: " + (timer - millis()/1000), 15, 40);
   text("Food: " + food, 15, 70);
-  
+   
   snake.display();
   snake.update();
   
@@ -41,14 +47,17 @@ void draw() {
   frog.checkEdges();
   frog.display();
   
-  // TODO: Condició de victoria
+  // Condició de victoria
   if ((timer - millis()/1000) == 0) {
+    
     textAlign(CENTER);
     fill(255);
     textSize(50);
     text("Time is out!!", width/2, height/2);
     textSize(20);
     text("You have eaten " + food + " worms", width/2, height/2 + 30);
+    
+    // Finalitza el joc sortint del draw()
     noLoop();
   }
 }
