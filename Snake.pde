@@ -9,7 +9,7 @@ class Snake {
   PVector velocity;
   PVector acceleration;
   int tamano;
-  ArrayList<PVector> cuerpo = new ArrayList<PVector>();
+  //ArrayList<PVector> cuerpo = new ArrayList<PVector>();
  
   /**
    * Constructor de classe
@@ -19,7 +19,16 @@ class Snake {
     location = new PVector(width/2,height/2);
     velocity = new PVector(2,2);
     tamano = 25; 
-    cuerpo.add(new PVector(location.x, location.y));
+    //cuerpo.add(new PVector(location.x, location.y));
+    
+  }
+  
+  Snake(float x, float y) {
+    
+    location = new PVector(x,y);
+    velocity = new PVector(2,2);
+    tamano = 25; 
+    //cuerpo.add(new PVector(location.x, location.y));
     
   }
   
@@ -28,6 +37,10 @@ class Snake {
    */
   PVector getLoc() {
     return location;
+  }
+  
+  PVector getVelocity() {
+    return velocity;
   }
   
   /**
@@ -58,18 +71,26 @@ class Snake {
     stroke(0, 64, 30);
     strokeWeight(1);
     
-    for(PVector c : cuerpo) {
-      ellipse(c.x + tamano/2, c.y + tamano/2, tamano, tamano);
-    }
+    //for(PVector c : cuerpo) {
+      ellipse(location.x + tamano/2, location.y + tamano/2, tamano, tamano);
+    //}
     
-    cuerpo.add(new PVector(location.x, location.y));
-    cuerpo.remove(0); 
+    //cuerpo.add(new PVector(location.x, location.y));
+    //cuerpo.remove(0); 
   }
   
   /**
    * Si es crida la funcio crecer() afegim un nou vector a la ArrayList cuerpo
    */
-  void crecer() {
-    cuerpo.add(new PVector(location.x, location.y));
+  //void crecer() {
+  //  cuerpo.add(new PVector(location.x, location.y));
+  //}
+  
+  
+  void setLocation(PVector velocity) {
+    velocity.limit(4); 
+    this.location.add(velocity.mult(1/4));
+    
+     
   }
 }
