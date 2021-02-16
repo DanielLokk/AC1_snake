@@ -1,3 +1,7 @@
+/**
+ * @Author/s: daniel.benet
+ * ona.maner
+ */
 Frog frog;
 Snake snake;
 int timer, food;
