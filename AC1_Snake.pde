@@ -1,6 +1,5 @@
 Frog frog;
 Snake snake;
-ArrayList<Snake> body; 
 int timer, food;
 PImage img;
 
@@ -10,7 +9,6 @@ void setup() {
   img = loadImage("frog.png");
   frog = new Frog(img);
   snake = new Snake();
-  body = new ArrayList<Snake>();
   
   // Puntuacio equivalent al nº de granotes menjades
   food = 0;
@@ -33,8 +31,7 @@ void draw() {
   if (dist(frog.getLoc().x, frog.getLoc().y, snake.getLoc().x, snake.getLoc().y) < 20) {
     food++;
     frog = new Frog(img);
-    //snake.crecer();
-    grow();
+    snake.crecer();
   }
 
   // Temporitzador i score mostrats a la part superior esquerre
@@ -45,12 +42,6 @@ void draw() {
    
   snake.display();
   snake.update();
-  
-  for (Snake s : body) {
-    s.setLocation(snake.getVelocity());
-    s.display();
-    s.update();
-  }
   
   frog.update();
   frog.checkEdges();
@@ -69,11 +60,4 @@ void draw() {
     // Finalitza el joc sortint del draw()
     noLoop();
   }
-}
-
-
-void grow() {
-  
-  Snake snk = new Snake(snake.getLoc().x, snake.getLoc().y);
-  body.add(snk);
 }
